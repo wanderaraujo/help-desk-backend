@@ -29,8 +29,6 @@ public class Ticket implements Serializable{
 	
 	private Date createdAt;
 	
-	private Date updatedAt;
-	
 	@DBRef(lazy = true)
 	private User user;
 	
@@ -46,9 +44,8 @@ public class Ticket implements Serializable{
 	public Ticket() {
 	}
 
-	public Ticket(String id, String title, String description, String image, Integer number, Date createdAt,
-			Date updatedAt, User user, StatusTicketEnum status, PriorityTicketEnum priority, User assinedUser,
-			List<ChangeStatus> changes) {
+	public Ticket(String id, String title, String description, String image, Integer number, Date createdAt, User user,
+			StatusTicketEnum status, PriorityTicketEnum priority, User assinedUser, List<ChangeStatus> changes) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -56,7 +53,6 @@ public class Ticket implements Serializable{
 		this.image = image;
 		this.number = number;
 		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
 		this.user = user;
 		this.status = status;
 		this.priority = priority;
@@ -110,14 +106,6 @@ public class Ticket implements Serializable{
 
 	public void setCreatedAt(Date createdAt) {
 		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
 	}
 
 	public User getUser() {
@@ -184,13 +172,12 @@ public class Ticket implements Serializable{
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Ticket [id=" + id + ", title=" + title + ", description=" + description + ", image=" + image
-				+ ", number=" + number + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ", user=" + user
-				+ ", status=" + status + ", priority=" + priority + ", assinedUser=" + assinedUser + ", changes="
-				+ changes + "]";
+				+ ", number=" + number + ", createdAt=" + createdAt + ", user=" + user + ", status=" + status
+				+ ", priority=" + priority + ", assinedUser=" + assinedUser + ", changes=" + changes + "]";
 	}
 	
 }

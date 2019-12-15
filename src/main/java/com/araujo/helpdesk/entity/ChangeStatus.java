@@ -2,6 +2,7 @@ package com.araujo.helpdesk.entity;
 
 
 import java.io.Serializable;
+import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -24,18 +25,21 @@ public class ChangeStatus implements Serializable{
 	private User userChange;
 	
 	private StatusTicketEnum status;
+	
+	private Date updatedAt;
 
 	public ChangeStatus() {
-		
 	}
 	
-	public ChangeStatus(String id, Ticket ticket, User userChange, StatusTicketEnum status) {
+	public ChangeStatus(String id, Ticket ticket, User userChange, StatusTicketEnum status, Date updatedAt) {
 		super();
 		this.id = id;
 		this.ticket = ticket;
 		this.userChange = userChange;
 		this.status = status;
+		this.updatedAt = updatedAt;
 	}
+
 
 	public String getId() {
 		return id;
@@ -68,6 +72,16 @@ public class ChangeStatus implements Serializable{
 	public void setStatus(StatusTicketEnum status) {
 		this.status = status;
 	}
+	
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+
+
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+
 
 	@Override
 	public int hashCode() {
@@ -94,10 +108,11 @@ public class ChangeStatus implements Serializable{
 		return true;
 	}
 
+
 	@Override
 	public String toString() {
 		return "ChangeStatus [id=" + id + ", ticket=" + ticket + ", userChange=" + userChange + ", status=" + status
-				+ "]";
+				+ ", updatedAt=" + updatedAt + "]";
 	}
-	
+
 }
