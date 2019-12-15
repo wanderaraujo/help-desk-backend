@@ -1,5 +1,7 @@
 package com.araujo.helpdesk.entity;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -11,7 +13,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.araujo.helpdesk.enums.ProfileEnum;
 
 @Document
-public class User {
+public class User implements Serializable{
+
+	private static final long serialVersionUID = -7495998939700241878L;
 
 	@Id
 	private String id;
@@ -28,7 +32,6 @@ public class User {
 	private ProfileEnum profile;
 	
 	public User() {
-		
 	}
 
 	public User(String id, @NotBlank(message = "Email is required") @Email(message = "Email is invalid") String email,
@@ -96,6 +99,10 @@ public class User {
 			return false;
 		return true;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", password=" + password + ", profile=" + profile + "]";
+	}
 	
 }
