@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -39,6 +40,7 @@ public class Ticket implements Serializable{
 	@DBRef(lazy = true)
 	private User assinedUser;
 	
+	@Transient
 	private List<ChangeStatus> changes;
 	
 	public Ticket() {
