@@ -1,6 +1,7 @@
 # Spring Boot App Help Desk 🧰🎫
 
-Simple app to study Java 8 with Spring boot. 
+Simple app to study Java 8 with Spring boot. This project app can add tasks and resolve each tasks with flow.
+
 
 ## Build With 
 
